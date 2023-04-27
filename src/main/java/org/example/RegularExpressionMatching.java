@@ -2,15 +2,15 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * 10. Regular Expression Matching
  * https://leetcode.com/problems/regular-expression-matching/
  */
 public class RegularExpressionMatching {
-
     public boolean isMatch(String s, String p) {
         boolean ans = true;
-        s=s+"+";
+        s = s + "+";
         char[] Schars = s.toCharArray();
         char[] Pchars = p.toCharArray();
         int j = 0;
@@ -60,7 +60,9 @@ public class RegularExpressionMatching {
         System.out.println("bbbbbbbbbbbbbbbbbbbbbbbb:" + b);
         return b;
     }
-    boolean n=true;
+
+    boolean n = true;
+
     public boolean find(List regular, char[] Schars, int regularI, int ScharsI) {
         switch (regular.get(regularI).toString()) {
             case ".*":
@@ -100,10 +102,10 @@ public class RegularExpressionMatching {
 
                 if (chars.length == 2) {
                     if (regularI == regular.size() - 1) {
-                        if (ScharsI == Schars.length - 1 ) {
+                        if (ScharsI == Schars.length - 1) {
                             return true;
                         } else {
-                            for (int i = ScharsI; i < Schars.length-1; i++) {
+                            for (int i = ScharsI; i < Schars.length - 1; i++) {
                                 if (chars[0] != Schars[i]) {
                                     return false;
                                 }

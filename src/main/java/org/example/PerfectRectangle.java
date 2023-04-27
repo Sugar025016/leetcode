@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * 391. Perfect Rectangle
- *https://leetcode.com/problems/perfect-rectangle/
+ * https://leetcode.com/problems/perfect-rectangle/
  */
 public class PerfectRectangle {
     public boolean isRectangleCover(int[][] rectangles) {
@@ -46,7 +46,7 @@ public class PerfectRectangle {
                 if (startEndNode[0] > startEndNode[1]) {
                     node = startEndNode[0];
                     break;
-                }else if(j==3 && startEndNode[0] == startEndNode[1]){
+                } else if (j == 3 && startEndNode[0] == startEndNode[1]) {
                     return false;
                 }
                 n = startEndNode[0];
@@ -56,25 +56,25 @@ public class PerfectRectangle {
 
 
             for (int j = 0; j < rectangles[i].length; j++) {
-                int a=0;
-                if(j==0){
-                    a=2;
-                }else if(j==1){
-                    a=3;
-                }else if(j==3){
-                    a=1;
+                int a = 0;
+                if (j == 0) {
+                    a = 2;
+                } else if (j == 1) {
+                    a = 3;
+                } else if (j == 3) {
+                    a = 1;
                 }
                 int startEnd = startEnd(rectangles[i][a], lists, n, m, j);
-                if(j==0 || j==1){
-                    m=startEnd;
-                }else {
-                    n=startEnd;
+                if (j == 0 || j == 1) {
+                    m = startEnd;
+                } else {
+                    n = startEnd;
                 }
             }
 
 
             for (int j = n; j <= m && j < lists.size(); j++) {
-                if (num0 < lists.get(j).get(2) && num1 < lists.get(j).get(3)&& num2 > lists.get(j).get(0) && num3 > lists.get(j).get(1)) {
+                if (num0 < lists.get(j).get(2) && num1 < lists.get(j).get(3) && num2 > lists.get(j).get(0) && num3 > lists.get(j).get(1)) {
                     return false;
                 }
             }
@@ -97,8 +97,9 @@ public class PerfectRectangle {
         int i = (maxList.get(2) - maxList.get(0)) * (maxList.get(3) - maxList.get(1));
 
 
-        return sum==i;
+        return sum == i;
     }
+
     int[] node(int num, List<List<Integer>> lists, int n, int m, int i) {
         int[] rNode = new int[2];
         int n1 = n;
@@ -135,11 +136,11 @@ public class PerfectRectangle {
 
     int startEnd(int num, List<List<Integer>> lists, int n, int m, int i) {
         int node = 0;
-        while (m >= n ) {
+        while (m >= n) {
             int node1 = (n + m) / 2;
             if (num > lists.get(node1).get(i)) {
                 n = node1 + 1;
-                node = node1 ;
+                node = node1;
             } else {
                 m = node1 - 1;
                 node = node1;
